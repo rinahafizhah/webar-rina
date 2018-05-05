@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Belajar WebAR</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"> </script>
+  </head>
+  <body>
+        <a-scene embedded arjs='sourceType: webcam;'>
+            <a-assets>
+                <img id="texture" src="texture.jpg"/>
+                <a-asset-item id="monas" src="monas.obj"></a-asset-item>
+            </a-assets>
+        <a-entity position='0 0.5 0' obj-model="obj: #monas;" scale="0.05 0.05 0.05"></a-entity>
+        <a-marker-camera preset='hiro'></a-marker-camera>
+        
+        <a-sky color="#2ecc71"></a-sky>
+        <a-box src="#texture" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
+            <a-animation attribute="position"
+            to="2 0 0"
+            direction="alternate"
+            dur="2000"
+            repeat="indefinite">
+        </a-animation>
+        </a-box>
+
+    </a-scene>
+  </body>
+</html>
